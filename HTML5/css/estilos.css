@@ -1,0 +1,29 @@
+/*selector body*/
+body{
+    /*bloque de declaracion*/
+    background-color: brown; /*cambiar el color del fondo*/
+    font-family: 'Times New Roman', Times, serif; /*tipografia*/
+
+    color: blue; /*color de la tipografia*/
+     text-align: center; /*direccion de la fuente*/
+     font-size: 2em; /*tamaño de la fuente*/
+
+
+}
+
+h1{
+    background-color: blueviolet;
+    font-family: 'Fran;
+
+    font-size: 7em
+}
+h2{
+    background-color: antiquewhite;
+    font-family: cursive;
+    font-size: 5em;
+}
+
+img{
+    width: 50%;  /*ancho de la imagen*/
+    padding: 1080px 720px; /*ubicacion de la imageen*/
+}
