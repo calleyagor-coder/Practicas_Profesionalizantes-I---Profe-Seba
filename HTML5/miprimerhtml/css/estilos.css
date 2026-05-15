@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(#1F235E);
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+    /*para que la imagen se complete*/
+    margin: 0;
+
+}
+
+.portada{
+    width: 100%;
+}
+header h1{
+    text-align: center;
+    font-size: 7em;
+}
+header {
+    background-color: white;
+    color:rgb(#1F235E)
+}
