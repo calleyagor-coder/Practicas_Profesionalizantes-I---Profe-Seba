@@ -18,3 +18,22 @@ header {
     background-color: white;
     color:rgb(#1F235E)
 }
+main{
+    background-color: white;
+    color: rgb(#1F235E);
+}
+main h2{
+    text-align: center;
+    font-size: 5em;
+}
+main ul{
+    background-color: lightpink;   
+    color: black;
+
+}
+.imagen1{
+    width: 100%;
+    height: 100%;
+    
+    
+}
