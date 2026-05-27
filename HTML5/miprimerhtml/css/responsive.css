@@ -1,0 +1,47 @@
+@media (min-width: 600px) and
+(max-width: 800px) {
+    body{
+        background-color: rgb(31, 35, 94);
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(255, 0, 238);
+        /*para que la imagen se complete*/
+        margin: 0;
+
+        .portada{
+            width: 80%;
+        }
+
+        header{
+            background-color: white;
+            color:rgb(0, 0, 0);
+            width: 80%;
+        }
+
+        header h1{
+            background-color: wheat;
+            color: chartreuse;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        main{
+            background-color: white;
+            color: rgb(0, 0, 0);
+            width: 80%;
+        }
+
+        main h2{
+            background-color: wheat;
+            color: chartreuse;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        //para alistar el "ul"
+        main ul{
+            background-color: lightpink;   
+            color: black;
+            width: 80%;
+        }
+    }
+}
