@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Préstamos Educativos</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">EduLoan<span>PCs</span></h1>
+            <nav class="nav">
+                <a href="#">Inicio</a>
+                <a href="#">Soporte</a>
+                <a href="#">Reglamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container grid-container">
+            
+            <section class="info-section">
+                <h2>Reserva tu herramienta de estudio</h2>
+                <p>Bienvenido al Sistema de Préstamos Educativos de Computadores. Accede a equipos de última generación para continuar con tus proyectos, tareas y clases.</p>
+                <ul class="features">
+                    <li>💻 Laptops portátiles disponibles.</li>
+                    <li>🕒 Préstamos por horas o días semestrales.</li>
+                    <li>🛠️ Soporte técnico incluido.</li>
+                </ul>
+            </section>
+
+            <section class="login-section">
+                <div class="login-card">
+                    <h3>Iniciar Sesión</h3>
+                    <p class="subtitle">Selecciona tu perfil de ingreso</p>
+                    
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="role">Tipo de Usuario</label>
+                            <select id="role" name="role" required>
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="estudiante">Estudiante</option>
+                                <option value="administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Usuario o Correo</label>
+                            <input type="text" id="username" name="username" placeholder="Ej: est.juan.perez" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Ingresar al Sistema</button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sistema de Préstamos Educativos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Préstamos Educativos de Computadores</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">EduLoan<span>PCs</span></h1>
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Ver Catálogo</a>
+                <a href="#">Soporte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="inicio" class="main-content">
+        <div class="container grid-container">
+            
+            <section class="info-section">
+                <h2>Reserva tu herramienta de estudio</h2>
+                <p>Bienvenido al Sistema de Préstamos Educativos de Computadores. Accede a equipos de última generación para continuar con tus proyectos, tareas y clases.</p>
+                <ul class="features">
+                    <li>💻 Laptops portátiles disponibles.</li>
+                    <li>🕒 Préstamos por horas o días semestrales.</li>
+                    <li>🛠️ Soporte técnico incluido.</li>
+                </ul>
+            </section>
+
+            <section class="login-section">
+                <div class="login-card">
+                    <h3>Iniciar Sesión</h3>
+                    <p class="subtitle">Selecciona tu perfil de ingreso</p>
+                    
+                    <form action="#catalogo" method="GET">
+                        <div class="form-group">
+                            <label for="role">Tipo de Usuario</label>
+                            <select id="role" name="role" required>
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="estudiante">Estudiante</option>
+                                <option value="administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Usuario o Correo</label>
+                            <input type="text" id="username" name="username" placeholder="Ej: est.juan.perez" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Ingresar al Sistema</button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <hr class="section-divider">
+
+    <section id="catalogo" class="main-content gestion-page">
+        <div class="container">
+            
+            <div class="page-header">
+                <h2>Catálogo de Computadores</h2>
+                <p>Selecciona un equipo disponible para solicitarlo o revisa el estado actual del inventario.</p>
+            </div>
+
+            <div class="filters-bar">
+                <button class="btn-filter active">Todos</button>
+                <button class="btn-filter">Disponibles</button>
+                <button class="btn-filter">En Uso</button>
+            </div>
+
+            <div class="pc-grid">
+                
+                <div class="pc-card">
+                    <div class="pc-badge disponible">Disponible</div>
+                    <div class="pc-icon">💻</div>
+                    <h3 class="pc-title">Dell Inspiron 15</h3>
+                    <p class="pc-specs">Core i5 / 16GB RAM / 512GB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-001</strong></p>
+                    <button class="btn-action">Solicitar Préstamo</button>
+                </div>
+
+                <div class="pc-card en-uso">
+                    <div class="pc-badge uso">En Uso</div>
+                    <div class="pc-icon">💻</div>
+                    <h3 class="pc-title">HP Pavilion Laptop</h3>
+                    <p class="pc-specs">Ryzen 5 / 8GB RAM / 256GB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-002</strong></p>
+                    <button class="btn-action disabled" disabled>No Disponible</button>
+                </div>
+
+                <div class="pc-card">
+                    <div class="pc-badge disponible">Disponible</div>
+                    <div class="pc-icon">💻</div>
+                    <h3 class="pc-title">Lenovo ThinkPad E14</h3>
+                    <p class="pc-specs">Core i7 / 16GB RAM / 1TB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-003</strong></p>
+                    <button class="btn-action">Solicitar Préstamo</button>
+                </div>
+
+                <div class="pc-card en-uso">
+                    <div class="pc-badge uso">En Uso</div>
+                    <div class="pc-icon">🍏</div>
+                    <h3 class="pc-title">MacBook Air M1</h3>
+                    <p class="pc-specs">Chip M1 / 8GB RAM / 256GB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-004</strong></p>
+                    <button class="btn-action disabled" disabled>No Disponible</button>
+                </div>
+
+                <div class="pc-card">
+                    <div class="pc-badge disponible">Disponible</div>
+                    <div class="pc-icon">💻</div>
+                    <h3 class="pc-title">ASUS Vivobook 14</h3>
+                    <p class="pc-specs">Core i3 / 8GB RAM / 256GB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-005</strong></p>
+                    <button class="btn-action">Solicitar Préstamo</button>
+                </div>
+
+                <div class="pc-card">
+                    <div class="pc-badge disponible">Disponible</div>
+                    <div class="pc-icon">💻</div>
+                    <h3 class="pc-title">Acer Aspire 5</h3>
+                    <p class="pc-specs">Ryzen 7 / 16GB RAM / 512GB SSD</p>
+                    <p class="pc-id">ID Equipo: <strong>EDUL-006</strong></p>
+                    <button class="btn-action">Solicitar Préstamo</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sistema de Préstamos Educativos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
