@@ -1,354 +1,324 @@
-/* Variables de color para fácil mantenimiento */
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --secondary-color: #0f172a;
-    --background-color: #f8fafc;
-    --card-background: #ffffff;
-    --text-color: #334155;
-    --text-light: #64748b;
-    --border-color: #e2e8f0;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --student-color: #2563eb;
+    --admin-color: #059669;
+    --danger: #dc2626;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --surface: rgba(255, 255, 255, 0.92); /* Un toque translúcido para ver el fondo */
+    --border: #e2e8f0;
+    --transition: all 0.2s ease-in-out;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    background-color: transparent; /* El fondo real lo dará tu video */
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
+/* ==========================================================
+   CONFIGURACIÓN REVISADA PARA VIDEO DE FONDO COMPLETO
+========================================================== */
+.contenedor-video {
+    position: fixed; /* Cambiado a fixed para que flote detrás de todo */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10; /* Asegura que quede por debajo de los textos y botones */
+    overflow: hidden;
+}
+
+.contenedor-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajustado a -50% para centrado perfecto */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover; /* Evita que el video se estire o distorsione */
+}
+
+/* NAVBAR CONTENEDOR */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1300px;
     margin: 0 auto;
-}
-
-/* Header */
-.header {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 1.5rem 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+.nav-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
 }
 
-.logo span {
-    color: var(--primary-color);
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.nav a {
-    color: #cbd5e1;
-    text-decoration: none;
-    margin-left: 1.5rem;
-    transition: color 0.3s;
+.user-name {
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-.nav a:hover {
-    color: white;
+.btn-logout {
+    background-color: #f1f5f9;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+}
+.btn-logout:hover {
+    background-color: #e2e8f0;
+    color: var(--danger);
 }
 
-/* Contenido Principal */
+/* CONTENEDOR ANCHO COMPLETO */
 .main-content {
     flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 3rem 0;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+/* MENÚ ROLES (Texto mejorado para leerse sobre video) */
+.welcome-section {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    max-width: 650px;
+    margin: 4rem auto 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Sección Informativa */
-.info-section h2 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+.welcome-text h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #0f172a;
 }
 
-.info-section p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.features {
-    list-style: none;
-}
-
-.features li {
+.welcome-text p {
     font-size: 1.05rem;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Tarjeta de Login */
-.login-card {
-    background-color: var(--card-background);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-}
-
-.login-card h3 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.3rem;
-}
-
-.subtitle {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-}
-
-/* Formularios */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background-color: #f8fafc;
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
-.form-group input:focus, .form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    background-color: white;
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.85rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 0.5rem;
-}
-
-.btn-submit:hover {
-    background-color: var(--primary-hover);
-}
-
-.login-footer {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.login-footer a {
-    color: var(--primary-color);
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.login-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-    background-color: var(--secondary-color);
-    color: #94a3b8;
-    text-align: center;
-    padding: 1.5rem 0;
-    font-size: 0.9rem;
-    border-top: 1px solid #1e293b;
-}
-
-/* ==========================================================================
-   CONTINUACIÓN: Estilos para la sección de Gestión y Catálogo
-   ========================================================================== */
-
-.section-divider {
-    border: 0;
-    height: 1px;
-    background: var(--border-color);
-    margin: 2rem 0;
-}
-
-.gestion-page {
-    align-items: flex-start;
-    padding-top: 4rem;
-    background-color: #f1f5f9; /* Un tono ligeramente diferente para diferenciar secciones */
-}
-
-.page-header {
-    margin-bottom: 2rem;
-}
-
-.page-header h2 {
-    color: var(--secondary-color);
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Barra de Filtros rápidos */
-.filters-bar {
-    display: flex;
-    gap: 1rem;
+    color: #334155;
     margin-bottom: 2.5rem;
 }
 
-.btn-filter {
-    background-color: #e2e8f0;
-    border: none;
-    padding: 0.6rem 1.8rem;
-    border-radius: 20px;
-    font-weight: 600;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-filter.active, .btn-filter:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Grilla del catálogo de PCs */
-.pc-grid {
+.grid-roles {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding-bottom: 4rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
-/* Tarjeta de cada Computador */
-.pc-card {
-    background-color: var(--card-background);
-    border: 1px solid var(--border-color);
+/* BOTONES */
+.btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-student { background-color: var(--student-color); color: white; }
+.btn-student:hover { background-color: #1d4ed8; }
+
+.btn-admin { background-color: var(--admin-color); color: white; }
+.btn-admin:hover { background-color: #047857; }
+
+/* LOGIN */
+.login-section {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.login-card-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
     border-radius: 12px;
-    padding: 2.5rem 2rem 2rem 2rem;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* Estados: Disponible / En uso */
-.pc-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.pc-badge.disponible {
-    background-color: #dcfce7;
-    color: #15803d;
-}
-
-.pc-badge.uso {
-    background-color: #fee2e2;
-    color: #b91c1c;
-}
-
-/* Detalles del equipo */
-.pc-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.pc-title {
-    color: var(--secondary-color);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
-
-.pc-specs {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.pc-id {
-    font-size: 0.85rem;
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-}
-
-/* Botones de acción */
-.btn-action {
     width: 100%;
-    background-color: #ecfdf5;
-    color: #065f46;
-    border: 1px solid #a7f3d0;
-    padding: 0.7rem;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8px);
+}
+
+.login-card-wrapper label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+}
+
+input[type="text"], input[type="password"], textarea, .cu-select {
+    width: 100%;
+    padding: 0.85rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fff;
+}
+input:focus, textarea:focus, .cu-select:focus { border-color: var(--primary); }
+
+.btn-group { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-secondary { background: #e2e8f0; color: #475569; }
+
+/* DASHBOARD */
+.section-title {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+}
+
+.section-title h2 { font-size: 1.7rem; }
+
+/* GRILLA CASOS DE USO */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #1e293b;}
+.card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+.card-student { border-top: 4px solid var(--student-color); }
+.card-admin { border-top: 4px solid var(--admin-color); }
+
+/* COMPONENTES DE CASOS DE USO INTERNOS */
+.cu-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.cu-list {
+    list-style: none;
+    font-size: 0.9rem;
+}
+.cu-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.btn-card {
+    background: #f1f5f9;
+    border: none;
+    padding: 0.6rem;
     border-radius: 6px;
     font-weight: 600;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: var(--transition);
+}
+.btn-card:hover { background: var(--primary); color: white; }
+.btn-card-alert:hover { background: var(--danger); color: white; }
+
+.extend-tag {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem !important;
 }
 
-.btn-action:hover:not(.disabled) {
-    background-color: #059669;
-    color: white;
+/* CU: PERFIL */
+.cu-box-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.profile-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.profile-preview img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
 }
 
-.btn-action.disabled {
-    background-color: #f1f5f9;
-    color: #94a3b8;
-    border-color: #e2e8f0;
-    cursor: not-allowed;
+/* CU: HISTORIAL / CONSOLA LOGS */
+.log-container {
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 0.75rem;
+    border-radius: 6px;
+    height: 120px;
+    overflow-y: auto;
+    font-family: monospace;
 }
 
-/* Modificación visual si está ocupada */
-.pc-card.en-uso {
-    background-color: #f8fafc;
-    opacity: 0.8;
+.btn-sub {
+    background: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
 }
+.btn-sub-danger:hover { background: #fef2f2; color: var(--danger); }
+
+.user-badge { padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+.badge-admin { background: #d1fae5; color: #065f46; }
+.badge-student { background: #e0f2fe; color: #075985; }
+
+.hidden { display: none !important; }
