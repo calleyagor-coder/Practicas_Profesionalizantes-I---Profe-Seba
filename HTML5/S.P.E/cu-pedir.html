@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>S.P.E. - Pedir Computadora</title>
+    <link rel="icon" href="Img/LogoSPE.ico">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="contenedor-video">
+        <video autoplay muted loop playsinline><source src="media/FondoPaginaWeb.mp4" type="video/mp4"></video>
+    </div>
+    <header class="navbar">
+        <div class="nav-container">
+            <a class="nav-logo">💻 PEDIR COMPUTADORA</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="cu-container">
+            <h2>Pedir Computadora</h2>
+            <p style="color:var(--text-muted); margin-bottom:1rem;">Selecciona una computadora libre para asignarla a tu cuenta.</p>
+            
+            <select id="pc-select">
+                <option value="HP ProBook 01">Hp 01</option>
+                <option value="Dell Latitude 02">Lenovo 06</option>
+                <option value="Dell Latitude 02">Juana Manso 18</option>
+            </select>
+            
+            <button class="btn btn-primary" style="width:100%; margin-bottom:1rem;" onclick="solicitar()">Confirmar Pedido</button>
+            <a href="menu.html" class="btn btn-secondary" style="display:block;">Volver al Menú</a>
+        </div>
+    </main>
+    <script>
+        
+        function solicitar() {
+            let item = document.getElementById('pc-select').value;
+            localStorage.setItem('prestamo_activo', item);
+            
+            let historial = JSON.parse(localStorage.getItem('historial_log')) || [];
+            const fecha = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            historial.unshift(`• [${fecha}] Solicitó préstamo del equipo: ${item}`);
+            localStorage.setItem('historial_log', JSON.stringify(historial));
+
+            alert("Reserva registrada con éxito para: " + item);
+            window.location.href = 'menu.html'; 
+        }
+    
+    </script>
+</body>
+</html>

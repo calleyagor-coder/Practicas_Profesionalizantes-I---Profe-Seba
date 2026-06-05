@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>S.P.E. - Menú Administrativo</title>
+    <link rel="icon" href="Img/LogoSPE.ico">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="contenedor-video"><video autoplay muted loop playsinline><source src="media/FondoPaginaWeb.mp4" type="video/mp4"></video></div>
+    <header class="navbar">
+        <div class="nav-container">
+            <span class="nav-logo">💻 Menu Administrativo</span>  
+            <button class="btn-logout" onclick="localStorage.clear(); window.location.href='index.html'">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-title">
+            <h2>Consola de Administración</h2>
+        </div>
+        <div class="cu-container" style="max-width:1000px;">
+            <h4>Logs Globales</h4>
+            <div class="log-container" style="height:300px;">
+                <p style="color:#a7f3d0">• Servidor en funcionamiento. Monitoreando transacciones...</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

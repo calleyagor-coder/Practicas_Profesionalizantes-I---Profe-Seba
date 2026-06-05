@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Préstamos Educativos</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="contenedor-video">
+        <video autoplay muted loop playsinline><source src="media/FondoPaginaWeb.mp4" type="video/mp4"></video>
+    </div>
+
+    <header class="navbar">
+        <div class="nav-container"><span class="nav-logo">💻 S.P.E</span></div>
+    </header>
+
+    <main class="main-content">
+        <section id="role-selection" class="welcome-section">
+            <div class="welcome-text">
+                <h1>Sistema de Préstamo de Computadoras</h1>
+                <p>Selecciona tu rol para ingresar al portal institucional.</p>
+            </div>
+            <div class="grid-roles">
+                <button class="btn btn-student" onclick="goToLogin('estudiante')">🎓 Estudiante/Profesor</button>
+                <button class="btn btn-admin" onclick="goToLogin('admin')">⚙️ Administrador</button>
+            </div>
+        </section>
+
+        <section id="login-section" class="welcome-section hidden" style="margin-top:2rem;">
+            <h2 id="login-title">Iniciar Sesión</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-muted);">Completa los campos con su respectivos datos.</p>
+            
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="location.reload()">Volver</button>
+                <button class="btn btn-primary" onclick="executeLogin()">Ingresar</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let selectedRole = '';
+        function goToLogin(role) {
+            selectedRole = role;
+            document.getElementById('role-selection').classList.add('hidden');
+            document.getElementById('login-section').classList.remove('hidden');
+            document.getElementById('login-title').innerText = role === 'admin' ? "Acceso Administrador" : "Acceso Estudiante / Profesor";
+        }
+        function executeLogin() {
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            if(!user || !pass) { alert("Completa los campos."); return; }
+            
+            localStorage.setItem('userRole', selectedRole);
+            localStorage.setItem('userName', user);
+            
+            if(selectedRole === 'admin') {
+                window.location.href = 'panel-admin.html';
+            } else {
+                window.location.href = 'menu.html';
+            }
+        }
+    </script>
+</body>
+</html>

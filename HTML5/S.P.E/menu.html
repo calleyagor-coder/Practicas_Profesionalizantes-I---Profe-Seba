@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - LabCore</title>
+    <link rel="icon" href="Img/LogoSPE.ico">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div class="contenedor-video">
+        <video autoplay muted loop playsinline><source src="media/FondoPaginaWeb.mp4" type="video/mp4"></video>
+    </div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="menu.html" class="nav-logo-container">
+                <img src="Img/LogoSPE.ico" alt="Logo SPE" class="nav-logo-img">
+                <span class="nav-logo-text">S.P.E</span>
+            </a>
+            <div class="nav-user">
+                <span class="user-badge badge-student">Estudiante/Profesor</span>
+                <span id="user-display" class="user-name"></span>
+                <button class="btn-logout" onclick="logout()">Salir</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-title">
+            <h2>Panel de Control e Interfaz de Servicios</h2>
+            <p>Monitoreo de solicitudes en tiempo real y ejecución de casos de uso autorizados.</p>
+        </div>
+
+        <div class="features-grid">
+            
+            <a href="cu-buscar.html" class="card card-student">
+                <h4>🔍 Buscar Computadora/s</h4>
+                <p>Encuentra equipos específicos filtrando por sus componentes técnicos.</p>
+                <span class="btn-card" style="margin-top:auto;">Ir a Buscar</span>
+            </a>
+            
+            <a href="cu-disponibles.html" class="card card-student">
+                <h4>💻 Ver computadoras disponibles</h4>
+                <p>Consulta el stock informático libre dentro de los laboratorios en tiempo real.</p>
+                <span class="btn-card" style="margin-top:auto;">Ver Lista</span>
+            </a>
+            
+            <a href="cu-pedir.html" class="card card-student">
+                <h4>📥 Pedir Computadora/s</h4>
+                <p>Genera una nueva solicitud de préstamo adjuntando el ID de la máquina.</p>
+                <span class="btn-card" style="margin-top:auto;">Solicitar</span>
+            </a>
+
+            <div class="card card-student">
+                <h4>✅ Marcar como devuelto</h4>
+                <p>Confirma la entrega física de la terminal para liberar el inventario.</p>
+                <div class="cu-box" style="margin-top:auto;">
+                    <div id="info-devolucion" style="font-size:0.85rem; margin-bottom:0.75rem;"></div>
+                    <button id="btn-action-devolver" class="btn-card btn-card-alert" onclick="devolverEquipo()">Efectuar Devolución</button>
+                </div>
+            </div>
+
+            <div class="card card-student">
+                <h4>👤 Editar Perfil</h4>
+                <p>Actualiza tu avatar externo y tu descripción institucional dentro de LabCore.</p>
+                <div class="cu-box-profile" style="margin-top:auto;">
+                    <div class="profile-preview" style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                        <img id="avatar" src="https://picsum.photos/50" style="width:40px; height:40px; border-radius:50%;" alt="Foto">
+                        <button class="btn-sub" style="padding:0.2rem 0.4rem; font-size:0.7rem;" onclick="cambiarFoto()">📸 Foto</button>
+                    </div>
+                    <textarea id="desc-perfil" rows="1" style="margin-bottom:0.5rem; padding:0.4rem; font-size:0.85rem;" placeholder="Escribe algo sobre ti..."></textarea>
+                    <button class="btn-card" onclick="guardarPerfil()">Guardar Cambios</button>
+                </div>
+            </div>
+
+            <div class="card card-student">
+                <h4>📜 Historial de Peticiones</h4>
+                <p>Bitácora permanente e inmodificable del sistema de auditoría básica.</p>
+                <div class="log-container" id="logs-menu" style="margin-top:auto;">
+                    <p>• Sesión iniciada hoy correctamente.</p>
+                    <p>• Sincronización de credenciales completa.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            
+            <div class="footer-left">
+                <a href="https://www.tu-link-de-ingenieria-aqui.com" target="_blank" class="footer-school-link">
+                    <img src="Img/LogoSPE.ico" alt="Logo Escuela" class="footer-logo-img">
+                </a>
+                <div class="footer-user-credits">
+                    <span class="school-name">Escuela Técnica de Ingeniería</span>
+                    <span id="creator-display" class="dev-by">Por: Creador Anon</span>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                <h4>Contacto</h4>
+                <p>📍 Av. de la Tecnología 1234</p>
+                <p>📞 +54 11 4444-5555</p>
+                <p>✉️ soporte@labcore.edu</p>
+            </div>
+
+            <div class="footer-right">
+                <h4>Síguenos</h4>
+                <div class="footer-socials">
+                    <a href="https://instagram.com" target="_blank" class="social-btn ig">Instagram</a>
+                    <a href="https://facebook.com" target="_blank" class="social-btn fb">Facebook</a>
+                    <a href="https://linkedin.com" target="_blank" class="social-btn ln">LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const usuarioSesion = localStorage.getItem('userName') || 'Usuario';
+        document.getElementById('user-display').innerText = usuarioSesion;
+        document.getElementById('creator-display').innerText = "Por: " + usuarioSesion;
+
+        const prestamo = localStorage.getItem('prestamo_activo');
+        const infoDev = document.getElementById('info-devolucion');
+        const btnDev = document.getElementById('btn-action-devolver');
+
+        if(prestamo) {
+            infoDev.innerHTML = `<span style="color:var(--student-color)">🔴 Posees: <strong>${prestamo}</strong></span>`;
+            document.getElementById('logs-menu').innerHTML += `<p>• Alerta: Tienes el equipo [${prestamo}] bajo tu custodia.</p>`;
+        } else {
+            infoDev.innerHTML = `<span style="color:var(--text-muted)">🟢 No registras deudas técnicas.</span>`;
+            btnDev.disabled = true;
+            btnDev.style.opacity = "0.5";
+            btnDev.style.cursor = "not-allowed";
+        }
+
+        function devolverEquipo() {
+            localStorage.removeItem('prestamo_activo');
+            alert("Acción Procesada: El equipo fue reincorporado al stock físico.");
+            window.location.reload();
+        }
+
+        function cambiarFoto() {
+            let url = prompt("Introduce el enlace de tu nueva imagen:");
+            if(url) document.getElementById('avatar').src = url;
+        }
+
+        function guardarPerfil() {
+            alert("Perfil modificado y guardado con éxito.");
+        }
+
+        function logout() { 
+            localStorage.clear(); 
+            window.location.href = 'index.html'; 
+        }
+    </script>
+</body>
+</html>
