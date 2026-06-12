@@ -13,23 +13,23 @@
 
     <header class="navbar">
         <div class="nav-container">
-            <a class="nav-logo">💻 BUSCAR COMPUTADORAS</a>
+            <a class="nav-logo">💻 BUSCAR COMPUTADORA</a>
         </div>
     </header>
 
     <main class="main-content">
         <div class="cu-container">
-            <h2>Buscar Computadora/s</h2>
-            <p style="color:var(--text-muted); margin-bottom:1.5rem;">Introduce los criterios técnicos para filtrar las unidades.</p>
+            <h2>Buscar Computadora</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">Introduce computadoras según sus características técnicas.</p>
             
-            <input type="text" id="query" placeholder="Ej: Hp, Conectar Igualdad, Lenovo...">
-            <button class="btn btn-primary" style="width:100%; margin-bottom:1rem;" onclick="buscar()">Ejecutar Búsqueda</button>
+            <input type="text" id="compu" placeholder="Ej: Hp, Conectar Igualdad, Lenovo...">
+            <button class="btn btn-primary" style="width:100%; margin-bottom:1rem;" onclick="buscar()">Búscar</button>
             <a href="menu.html" class="btn btn-secondary" style="display:block;">Volver al Menú</a>
         </div>
     </main>
     <script>
         function buscar() {
-            alert("Búsqueda simulada con éxito para " + document.getElementById('query').value);
+            alert("Búsqueda simulada con éxito para " + document.getElementById('compu').value);
         }
     </script>
 </body>

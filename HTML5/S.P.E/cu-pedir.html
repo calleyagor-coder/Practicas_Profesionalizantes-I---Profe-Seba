@@ -19,12 +19,12 @@
     <main class="main-content">
         <div class="cu-container">
             <h2>Pedir Computadora</h2>
-            <p style="color:var(--text-muted); margin-bottom:1rem;">Selecciona una computadora libre para asignarla a tu cuenta.</p>
+            <p style="color:var(--text-muted); margin-bottom:1rem;">Selecciona una computadora libre.</p>
             
             <select id="pc-select">
-                <option value="HP ProBook 01">Hp 01</option>
-                <option value="Dell Latitude 02">Lenovo 06</option>
-                <option value="Dell Latitude 02">Juana Manso 18</option>
+                <option value="Hp 01">Hp 01</option>
+                <option value="Lenovo 06">Lenovo 06</option>
+                <option value="Juana Manso 02">Juana Manso 18</option>
             </select>
             
             <button class="btn btn-primary" style="width:100%; margin-bottom:1rem;" onclick="solicitar()">Confirmar Pedido</button>
@@ -43,7 +43,6 @@
             localStorage.setItem('historial_log', JSON.stringify(historial));
 
             alert("Reserva registrada con éxito para: " + item);
-            window.location.href = 'menu.html'; 
         }
     
     </script>

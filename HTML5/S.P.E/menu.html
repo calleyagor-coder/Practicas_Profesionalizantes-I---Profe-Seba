@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Menú Principal - LabCore</title>
-    <link rel="icon" href="Img/LogoSPE.ico">
+    <title>S.P.E.</title>
+    <link rel="icon" href="img/LogoSPE.ico">
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -29,33 +28,33 @@
 
     <main class="main-content">
         <div class="section-title">
-            <h2>Panel de Control e Interfaz de Servicios</h2>
-            <p>Monitoreo de solicitudes en tiempo real y ejecución de casos de uso autorizados.</p>
+            <h2>Menú Principal</h2>
+            <p>Panel de control.</p>
         </div>
 
         <div class="features-grid">
             
             <a href="cu-buscar.html" class="card card-student">
-                <h4>🔍 Buscar Computadora/s</h4>
-                <p>Encuentra equipos específicos filtrando por sus componentes técnicos.</p>
+                <h4>🔍 Buscar Computadora</h4>
+                <p> Encuentra computadoras según sus características técnicas.</p>
                 <span class="btn-card" style="margin-top:auto;">Ir a Buscar</span>
             </a>
             
             <a href="cu-disponibles.html" class="card card-student">
                 <h4>💻 Ver computadoras disponibles</h4>
-                <p>Consulta el stock informático libre dentro de los laboratorios en tiempo real.</p>
+                <p>Consulta el stock libre dentro de la sala de informática.</p>
                 <span class="btn-card" style="margin-top:auto;">Ver Lista</span>
             </a>
             
             <a href="cu-pedir.html" class="card card-student">
-                <h4>📥 Pedir Computadora/s</h4>
-                <p>Genera una nueva solicitud de préstamo adjuntando el ID de la máquina.</p>
+                <h4>Pedir Computadora</h4>
+                <p>Genera una nueva solicitud de préstamo para la computadora.</p>
                 <span class="btn-card" style="margin-top:auto;">Solicitar</span>
             </a>
 
             <div class="card card-student">
-                <h4>✅ Marcar como devuelto</h4>
-                <p>Confirma la entrega física de la terminal para liberar el inventario.</p>
+                <h4>Marcar como devuelto</h4>
+                <p>Confirma la entrega de la computadora para el inventario sea avisado.</p>
                 <div class="cu-box" style="margin-top:auto;">
                     <div id="info-devolucion" style="font-size:0.85rem; margin-bottom:0.75rem;"></div>
                     <button id="btn-action-devolver" class="btn-card btn-card-alert" onclick="devolverEquipo()">Efectuar Devolución</button>
@@ -64,10 +63,10 @@
 
             <div class="card card-student">
                 <h4>👤 Editar Perfil</h4>
-                <p>Actualiza tu avatar externo y tu descripción institucional dentro de LabCore.</p>
+                <p>Actualiza tu avatar y tu descripción dentro de S.P.E.</p>
                 <div class="cu-box-profile" style="margin-top:auto;">
                     <div class="profile-preview" style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                        <img id="avatar" src="https://picsum.photos/50" style="width:40px; height:40px; border-radius:50%;" alt="Foto">
+                        <img id="avatar" src="img/ftdeperfil.jpg" style="width:40px; height:40px; border-radius:50%;" alt="Foto">
                         <button class="btn-sub" style="padding:0.2rem 0.4rem; font-size:0.7rem;" onclick="cambiarFoto()">📸 Foto</button>
                     </div>
                     <textarea id="desc-perfil" rows="1" style="margin-bottom:0.5rem; padding:0.4rem; font-size:0.85rem;" placeholder="Escribe algo sobre ti..."></textarea>
@@ -77,10 +76,9 @@
 
             <div class="card card-student">
                 <h4>📜 Historial de Peticiones</h4>
-                <p>Bitácora permanente e inmodificable del sistema de auditoría básica.</p>
+                <p>Vista previa del historial de solicitudes realizadas.</p>
                 <div class="log-container" id="logs-menu" style="margin-top:auto;">
                     <p>• Sesión iniciada hoy correctamente.</p>
-                    <p>• Sincronización de credenciales completa.</p>
                 </div>
             </div>
 
@@ -95,24 +93,23 @@
                     <img src="Img/LogoSPE.ico" alt="Logo Escuela" class="footer-logo-img">
                 </a>
                 <div class="footer-user-credits">
-                    <span class="school-name">Escuela Técnica de Ingeniería</span>
-                    <span id="creator-display" class="dev-by">Por: Creador Anon</span>
+                    <a class="school-name">Centro Educativo Nonogasta</a>
+                    <snap class="dev-by">Técnico en Informática Profesional y Personal</snap>
                 </div>
             </div>
 
             <div class="footer-center">
                 <h4>Contacto</h4>
-                <p>📍 Av. de la Tecnología 1234</p>
-                <p>📞 +54 11 4444-5555</p>
-                <p>✉️ soporte@labcore.edu</p>
+                <p>📍 Nonogasta, La Rioja</p>
+                <p>📞 3825671774</p>
+                <p>✉️ consultas@cen.edu.ar</p>
             </div>
 
             <div class="footer-right">
                 <h4>Síguenos</h4>
                 <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" class="social-btn ig">Instagram</a>
-                    <a href="https://facebook.com" target="_blank" class="social-btn fb">Facebook</a>
-                    <a href="https://linkedin.com" target="_blank" class="social-btn ln">LinkedIn</a>
+                    <a href="https://www.instagram.com/centro_educativo_nonogasta?igsh=MTdzdTFtZ3Q5cDZoYQ==" target="_blank" class="social-btn ig">Instagram</a>
+                    <a href="https://www.facebook.com/share/18eY2tpDfk/" target="_blank" class="social-btn fb">Facebook</a>
                 </div>
             </div>
 

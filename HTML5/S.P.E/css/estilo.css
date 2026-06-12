@@ -18,8 +18,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -296,7 +296,7 @@ input:focus, textarea:focus { border-color: var(--primary); outline: none; }
 
 .dev-by {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: gray;
     font-weight: 500;
 }
 
